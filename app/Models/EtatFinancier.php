@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EtatFinanier extends Model
+class EtatFinancier extends Model
 {
     use HasFactory;
+    protected $fillable = ['statut'];
+
+    
 }
