@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('unchks', function (Blueprint $table) {
+        Schema::create('service_financiers', function (Blueprint $table) {
             $table->id();
+            $table->string('nomService');
+            $table->foreignId('etantFinancier_id')->constrained('etat_financiers');
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('unchks');
+        Schema::dropIfExists('service_financiers');
     }
 };

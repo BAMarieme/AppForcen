@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Consultant extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nomRole',
+        'utilisateur_id',
     ];
 
-  
+    public function utilisateur(): BelongsTo
+    {
+        return $this->belongsTo(Utilisateur::class);
+    }
 }

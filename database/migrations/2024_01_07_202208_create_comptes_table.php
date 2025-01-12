@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cabinetComptables', function (Blueprint $table) {
+        Schema::create('comptes', function (Blueprint $table) {
             $table->id();
+            $table->string('email')->unique;
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cabinetComptables');
+        Schema::dropIfExists('comptes');
     }
 };

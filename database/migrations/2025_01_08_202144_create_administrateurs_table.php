@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('fichePresences', function (Blueprint $table) {
+        Schema::create('administrateurs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('utilisateur_id')->constrained('utilisateurs');
+            $table->foreignId('compte_id')->constrained('comptes');
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('fichePresences');
+        Schema::dropIfExists('administrateurs');
     }
 };
